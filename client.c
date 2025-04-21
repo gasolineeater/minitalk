@@ -6,7 +6,7 @@
 /*   By: ezekaj <ezekaj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 17:37:25 by ezekaj            #+#    #+#             */
-/*   Updated: 2025/04/21 14:34:15 by ezekaj           ###   ########.fr       */
+/*   Updated: 2025/04/21 14:35:13 by ezekaj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int	main(int ac, char **av)
 		ft_printf("Error: Invalid pid.\n");
 		return (EXIT_FAILURE);
 	}
+	msg = ft_strdup(av[2]);
+	free(msg);
 	return (EXIT_SUCCESS);
 }
