@@ -6,7 +6,7 @@
 /*   By: ezekaj <ezekaj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 17:37:28 by ezekaj            #+#    #+#             */
-/*   Updated: 2025/04/21 15:27:58 by ezekaj           ###   ########.fr       */
+/*   Updated: 2025/04/21 15:32:00 by ezekaj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	main(void)
 	struct	sigaction sa;
 	int 	id;
 
+	g_byte = 0;
+	ft_memset(&sa, 0, sizeof(sa));
 	sa.sa_handler = &handle_signals;
 	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
