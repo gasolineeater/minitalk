@@ -6,7 +6,7 @@
 /*   By: ezekaj <ezekaj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 17:37:25 by ezekaj            #+#    #+#             */
-/*   Updated: 2025/04/21 15:04:18 by ezekaj           ###   ########.fr       */
+/*   Updated: 2025/04/21 15:37:14 by ezekaj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	send_msg(pid_t pid, char *msg)
 			else
 				kill(pid, SIGUSR2);
 			bit_mask >>= 1;
-			usleep(500);
+			usleep(100);
 		}
 	}
 }
