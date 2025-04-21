@@ -6,7 +6,7 @@
 /*   By: ezekaj <ezekaj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 17:37:28 by ezekaj            #+#    #+#             */
-/*   Updated: 2025/04/21 15:24:31 by ezekaj           ###   ########.fr       */
+/*   Updated: 2025/04/21 15:27:58 by ezekaj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int	main(void)
 	int 	id;
 
 	sa.sa_handler = &handle_signals;
+	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
+	sa.sa_flags = 0;
 	id = getpid();
 	ft_printf("Server PID: %d\n", id);
 	while (1)
