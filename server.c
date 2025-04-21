@@ -6,29 +6,27 @@
 /*   By: ezekaj <ezekaj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 17:37:28 by ezekaj            #+#    #+#             */
-/*   Updated: 2025/04/21 15:17:34 by ezekaj           ###   ########.fr       */
+/*   Updated: 2025/04/21 15:24:31 by ezekaj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+static unsigned char	g_byte;
+
 void	handle_signals(int signum)
 {
-	int		bit_pos;
-	char	curr_char;
+	static int		bit_pos;
 
 	bit_pos = 0;
-	curr_char = 0;
-	if (signum == SIGUSR2)
-		curr_char |= (0 << bit_pos);
-	else if (signum == SIGUSR1)
-		curr_char |= (1 << bit_pos);
+	if (signum == SIGUSR1)
+		g_byte |= (1 <<(7 - bit_pos));
 	bit_pos++;
 	if (bit_pos == 8)
 	{
-		ft_printf("%c", curr_char);
+		ft_printf("%c", g_byte);
 		bit_pos = 0;
-		curr_char = 0;
+		g_byte = 0;
 	}
 }
 
